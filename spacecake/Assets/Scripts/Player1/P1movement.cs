@@ -184,14 +184,14 @@ public class P1movement : MonoBehaviour
 
     void particle()
     {
-        if (animspeed > 0f && _isOnGround)//
-        {
+        //if (Input.GetKeyDown(KeyCode.A) && _isOnGround || Input.GetKeyDown(KeyCode.D) && _isOnGround)//
+       // {
             runFX.SetActive(true);//
-        }
-        else//
-        {
-            runFX.SetActive(false);//
-        }
+       // }
+      //  else//
+      //  {
+       //     runFX.SetActive(false);//
+       // }
     }
 
 
