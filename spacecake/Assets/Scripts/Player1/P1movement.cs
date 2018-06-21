@@ -6,9 +6,9 @@ using System;
 public class P1movement : MonoBehaviour
 {
     [SerializeField] public GameObject runFX;//
-
-    public bool _isOnGround = false;
     float animspeed = 0;
+    public bool _isOnGround = false;
+
     [SerializeField] private GameObject playerrocket;
 
     [SerializeField] private GameObject part1;
@@ -36,7 +36,6 @@ public class P1movement : MonoBehaviour
         particle();
 
         anim.SetFloat("speed", animspeed);
-
     }
 
     private void calculateForce()
@@ -45,7 +44,7 @@ public class P1movement : MonoBehaviour
         calculateJump();
         calculateGravity();
 
-        rb.MovePosition(position);
+        rb.MovePosition( position );
     }
 
     // movement variables
@@ -76,7 +75,7 @@ public class P1movement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
             animspeed = 1;
         }
-        if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.D)&& !Input.GetKey(KeyCode.A))
         {
             position.x += calculateMovementSin();
             transform.localScale = new Vector3(1, 1, 1);
@@ -89,7 +88,7 @@ public class P1movement : MonoBehaviour
         movementSpeedRange = maxMovementSpeed - minMovementSpeed;
         movementFactor += movementFactorGrowth;
         movementFactor %= 360;
-        return minMovementSpeed + (movementSpeedRange / 2) + movementSpeedRange * (float)Math.Sin(Math.PI * movementFactor / 180);
+        return minMovementSpeed + (movementSpeedRange / 2) + movementSpeedRange * (float) Math.Sin(Math.PI * movementFactor / 180);
     }
 
     private void calculateJump() // when the jumpFactor equals 180 the player falls down
@@ -100,17 +99,15 @@ public class P1movement : MonoBehaviour
             jumping = true;
             jumpFactor = 60;
             anim.SetTrigger("prep");
-            anim.SetBool("jumping", true);
+            anim.SetBool("jumping",true);
         }
 
-        if (!_isOnGround)
+        if(!_isOnGround)
         {
-            float jumpValue = (float)(jumpHeight * Math.Sin(Math.PI * jumpFactor / 180));
-            if (jumpFactor + jumpFactorGrowth > maxJumpFalldown)
+            float jumpValue = (float) (jumpHeight * Math.Sin(Math.PI * jumpFactor / 180));
+            if(jumpFactor + jumpFactorGrowth > maxJumpFalldown)
             {
                 jumping = false;
-
-
             }
             else
             {
@@ -129,10 +126,10 @@ public class P1movement : MonoBehaviour
     private void calculateGravity()
     {
         position.y -= gravityFactor;
-        if (!jumping)
+        if(!jumping)
         {
-            position.y += (float)(jumpHeight * Math.Sin(Math.PI * falldownFactor / 180));
-            if (falldownFactor + falldownFactorGrowth > maxFalldown)
+            position.y += (float) (jumpHeight * Math.Sin(Math.PI * falldownFactor / 180));
+            if(falldownFactor + falldownFactorGrowth > maxFalldown)
             {
                 falldownFactor = maxFalldown;
             }
@@ -142,7 +139,7 @@ public class P1movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ground")
+        if (collision.gameObject.tag == "ground") 
         {
             _isOnGround = true;
             jumping = false;
@@ -186,17 +183,16 @@ public class P1movement : MonoBehaviour
         transform.position = spawn;
 
     }
-
     void particle()
     {
-        //if (Input.GetKeyDown(KeyCode.A) && _isOnGround || Input.GetKeyDown(KeyCode.D) && _isOnGround)//
-       // {
+        if (animspeed > 0f && _isOnGround)//
+        {
             runFX.SetActive(true);//
-       // }
-      //  else//
-      //  {
-       //     runFX.SetActive(false);//
-       // }
+        }
+        else//
+        {
+            runFX.SetActive(false);//
+        }
     }
 
 
