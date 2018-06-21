@@ -39,7 +39,6 @@ public class compactrandomizer : MonoBehaviour
             val = Random.Range(min, max);
             if (usedValues.Contains(val) == false) { break; }
         }
-        print(val);
         usedValues.Add(val);
 
         return val;
