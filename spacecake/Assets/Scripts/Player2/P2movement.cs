@@ -27,11 +27,15 @@ public class P2movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        particle();
+        animspeed = 0;
+        
         position.x = transform.position.x;
         position.y = transform.position.y;
 
         calculateForce();
+        particle();
+
+        anim.SetFloat("speed", animspeed);
     }
 
     private void calculateForce()
@@ -175,10 +179,6 @@ public class P2movement : MonoBehaviour
     }
     void particle()
     {
-
-
-        anim.SetFloat("speed", animspeed);
-
         if (animspeed > 0f && _isOnGround)//
         {
             runFX.SetActive(true);//
