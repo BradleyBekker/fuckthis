@@ -5,7 +5,8 @@ using System;
 
 public class P2movement : MonoBehaviour
 {
-
+    [SerializeField] public GameObject runFX;//
+    float animspeed = 0;
     public bool _isOnGround = false;
 
     [SerializeField] private GameObject playerrocket;
@@ -26,7 +27,7 @@ public class P2movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        anim.SetFloat("speed", 0);
+        particle();
         position.x = transform.position.x;
         position.y = transform.position.y;
 
@@ -68,13 +69,13 @@ public class P2movement : MonoBehaviour
         {
             position.x -= calculateMovementSin();
             transform.localScale = new Vector3(-1, 1, 1);
-            anim.SetFloat("speed", 1);
+            animspeed = 1;
         }
         if (Input.GetKey(KeyCode.RightArrow)&& !Input.GetKey(KeyCode.LeftArrow))
         {
             position.x += calculateMovementSin();
             transform.localScale = new Vector3(1, 1, 1);
-            anim.SetFloat("speed", 1);
+            animspeed = 1;
         }
     }
 
@@ -172,4 +173,21 @@ public class P2movement : MonoBehaviour
         transform.position = spawn;
 
     }
+    void particle()
+    {
+
+
+        anim.SetFloat("speed", animspeed);
+
+        if (animspeed > 0f && _isOnGround)//
+        {
+            runFX.SetActive(true);//
+        }
+        else//
+        {
+            runFX.SetActive(false);//
+        }
+    }
+
+
 }

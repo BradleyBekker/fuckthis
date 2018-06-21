@@ -30,11 +30,12 @@ public class P1movement : MonoBehaviour
 
 
         particle();
-        anim.SetFloat("speed", 0);
+       // anim.SetFloat("speed", 0);
         position.x = transform.position.x;
         position.y = transform.position.y;
 
         calculateForce();
+
     }
 
     private void calculateForce()
@@ -72,13 +73,13 @@ public class P1movement : MonoBehaviour
         {
             position.x -= calculateMovementSin();
             transform.localScale = new Vector3(-1, 1, 1);
-            anim.SetFloat("speed", 1);
+            animspeed = 1;
         }
         if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
         {
             position.x += calculateMovementSin();
             transform.localScale = new Vector3(1, 1, 1);
-            anim.SetFloat("speed", 1);
+            animspeed = 1;
         }
     }
 
@@ -179,8 +180,10 @@ public class P1movement : MonoBehaviour
         transform.position = spawn;
 
     }
+
     void particle()
     {
+
 
         anim.SetFloat("speed", animspeed);
 
@@ -193,4 +196,6 @@ public class P1movement : MonoBehaviour
             runFX.SetActive(false);//
         }
     }
+
+
 }
