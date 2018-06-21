@@ -1,0 +1,5 @@
+if(collision.gameObject.tag == "floor")
+        {
+            jumping = false;
+            jumpFactor = 180;
+        }
