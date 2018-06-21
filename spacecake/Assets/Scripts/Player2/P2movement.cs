@@ -145,7 +145,11 @@ public class P2movement : MonoBehaviour
             falldownFactor = minFalldown;
             anim.SetBool("falling",false);
             anim.SetTrigger("land");
-
+        }
+        if(collision.gameObject.tag == "floor")
+        {
+            jumping = false;
+            jumpFactor = 180;
         }
     }
 

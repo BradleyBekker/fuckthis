@@ -151,6 +151,11 @@ public class P1movement : MonoBehaviour
             anim.SetBool("falling", false);
             anim.SetTrigger("land");
         }
+        if(collision.gameObject.tag == "floor")
+        {
+            jumping = false;
+            jumpFactor = 180;
+        }
     }
 
     private void Death()
