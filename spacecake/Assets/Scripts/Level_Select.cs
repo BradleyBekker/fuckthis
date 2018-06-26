@@ -9,6 +9,10 @@ public class Level_Select : MonoBehaviour {
     Image controlimage;
     [SerializeField]
     Image introimage;
+    [SerializeField]
+    Image logoimage;
+    [SerializeField]
+    Button button;
     bool timed = false;
     float timer = 0;
     void Start () {
@@ -17,9 +21,9 @@ public class Level_Select : MonoBehaviour {
 
   public void Onclick()
     {
-
+        logoimage.enabled = false;
         introimage.enabled = true;
-
+        button.image.enabled = false;
 
     }
     private void Update()

@@ -487,6 +487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlimage: {fileID: 387848878}
   introimage: {fileID: 180214096}
+  logoimage: {fileID: 1602082278}
+  button: {fileID: 1512180011}
 --- !u!114 &1512180011
 MonoBehaviour:
   m_ObjectHideFlags: 0
