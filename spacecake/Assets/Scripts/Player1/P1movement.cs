@@ -185,13 +185,19 @@ public class P1movement : MonoBehaviour
     }
     void particle()
     {
+        ParticleSystem ps = runFX.GetComponent<ParticleSystem>();
+
         if (animspeed > 0f && _isOnGround)//
         {
-            runFX.SetActive(true);//
+            ps.enableEmission = true;
+
+            //runFX.SetActive(true);//
         }
         else//
         {
-            runFX.SetActive(false);//
+          //  runFX.SetActive(false);//
+            ps.enableEmission = false;
+
         }
     }
 
