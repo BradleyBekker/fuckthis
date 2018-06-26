@@ -137,22 +137,20 @@ public class P1movement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnGround()
     {
-        if (collision.gameObject.tag == "ground") 
-        {
-            _isOnGround = true;
-            jumping = false;
-            jumpFactor = 60;
-            falldownFactor = minFalldown;
-            anim.SetBool("falling", false);
-            anim.SetTrigger("land");
-        }
-        if(collision.gameObject.tag == "floor")
-        {
-            jumping = false;
-            jumpFactor = 180;
-        }
+        _isOnGround = true;
+        jumping = false;
+        jumpFactor = 60;
+        falldownFactor = minFalldown;
+        anim.SetBool("falling", false);
+        anim.SetTrigger("land");
+    }
+
+    public void OnFloor()
+    {
+        jumping = false;
+        jumpFactor = 180;
     }
 
     private void Death()
@@ -183,6 +181,7 @@ public class P1movement : MonoBehaviour
         transform.position = spawn;
 
     }
+    
     void particle()
     {
         ParticleSystem ps = runFX.GetComponent<ParticleSystem>();
