@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50541954224107048}
   m_Layer: 0
   m_Name: floor-10
-  m_TagString: floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 61023463122210028}
   m_Layer: 0
   m_Name: floorCollission
-  m_TagString: ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

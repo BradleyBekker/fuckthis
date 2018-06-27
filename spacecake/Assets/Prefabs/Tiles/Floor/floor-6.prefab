@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61235215237868758}
   m_Layer: 0
   m_Name: floorCollission
-  m_TagString: ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61443874763080854}
   m_Layer: 0
   m_Name: floor-6
-  m_TagString: floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
